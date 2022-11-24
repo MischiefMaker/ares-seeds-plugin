@@ -30,7 +30,7 @@ module AresMUSH
       def handle
         ClassTargetFinder.with_a_character(self.name, client, enactor) do |model|
         seeds = model.seeds || {}
-        seeds[self.seeds_name] = self.seeds_description
+        seeds[self.seed_name] = self.seed_description
         model.update(seeds: seeds)
         client.emit_success "Seed set for #{self.name}!"
       end
