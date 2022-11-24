@@ -6,7 +6,11 @@ module AresMUSH
       attr_accessor :char
 
       def parse_args
-        self.char = cmd.args ? Character.find_one_by_name(args) : enactor
+        if cmd.args == nil
+          self.char = enactor
+        else
+          Character.find_one_by_name(cmd.args)
+        end
       end
 
       def check_is_player
