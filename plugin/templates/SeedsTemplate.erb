@@ -1,0 +1,9 @@
+<%= header %>
+%xh<%= @char.name %>'s Seeds%xn
+<%= divider %>
+
+<% @seeds.each do |key, value| %>
+<%= line_with_text key %>
+%r<%= value %>%r
+<% end %>
+<%= footer %>
