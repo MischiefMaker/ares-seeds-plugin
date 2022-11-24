@@ -6,14 +6,10 @@ module AresMUSH
      attr_accessor :name, :seed_name, :seed_description
 
      def parse_args
-       args = cmd.parse_args(ArgParser.arg1_equals_optional_arg2)
-        if (args.arg2 == nil)
-          self.name = enactor_name
-          self.seed_name = titlecase_arg(args.arg1)
-        else
-          self.name = titlecase_arg(args.arg1)
-          self.seed_name = titlecase_arg(args.arg2)
-        end
+       args = cmd.parse_args(ArgParser.arg1_equals_arg2)
+        self.name = titlecase_arg(args.arg1)
+        self.seed_name = titlecase_arg(args.arg2)
+      end
     end
 
     def required_args
@@ -21,7 +17,6 @@ module AresMUSH
     end
 
     def check_can_view
-       return nil if self.name == enactor_name
        return nil if enactor.has_permission?("view_bgs")
        return "You're not allowed to edit other people's Seeds."
     end
@@ -33,11 +28,7 @@ module AresMUSH
       else
         seeds = Hash[char.seeds]
         self.seed_description = seeds[self.seed_name]
-          if (enactor.name == self.name)
-            Utils.grab client, enactor, "seeds/set #{self.seed_name}=#{self.seed_description}"
-          else
             Utils.grab client, enactor, "seeds/set #{self.name}=#{self.seed_name}/#{self.seed_description}"
-          end
       end
     end
 
