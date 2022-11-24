@@ -1,4 +1,4 @@
-seedsmodule AresMUSH
+module AresMUSH
   module Seeds
     class SetSeedsCmd
       include CommandHandler
