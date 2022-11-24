@@ -7,7 +7,7 @@ module AresMUSH
 
       def parse_args
         if cmd.args != nil
-          ClassTargetFinder.with_a_character(name, client) do |model|
+          ClassTargetFinder.with_a_character(cmd.args, client) do |model|
             self.char = model
           end
           else
