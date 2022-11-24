@@ -12,7 +12,7 @@ module AresMUSH
         else
           #ClassTargetFinder.with_a_character(arg, client, enactor) do |model|
            # self.char = model
-          end
+         # end
         end
       end
 
