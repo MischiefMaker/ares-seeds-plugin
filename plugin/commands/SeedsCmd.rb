@@ -10,8 +10,8 @@ module AresMUSH
         if arg == nil
           self.char = enactor
         else
-          ClassTargetFinder.with_a_character(arg, client, enactor) do |model|
-            self.char = model
+          #ClassTargetFinder.with_a_character(arg, client, enactor) do |model|
+           # self.char = model
           end
         end
       end
