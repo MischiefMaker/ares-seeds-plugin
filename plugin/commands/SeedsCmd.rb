@@ -9,7 +9,9 @@ module AresMUSH
         if cmd.args == nil
           self.char = enactor
         else
-          Character.find_one_by_name(cmd.args)
+          ClassTargetFinder.with_a_character(self.name, client, enactor) do |model|
+            self.char = cmd.args
+          end
         end
       end
 
