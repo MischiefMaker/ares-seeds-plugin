@@ -1,6 +1,6 @@
 module AresMUSH
   module Seeds
-    class SetSeedsCmd
+    class NewSeedsCmd
       include CommandHandler
 
       attr_accessor :name, :seed_name, :seed_description
