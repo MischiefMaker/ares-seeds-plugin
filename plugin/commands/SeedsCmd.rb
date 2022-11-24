@@ -6,7 +6,7 @@ module AresMUSH
       attr_accessor :char
 
       def parse_args
-        if cmd.args
+        if cmd.args != nil
           ClassTargetFinder.with_a_character(name, client) do |model|
             self.char = model
           end
