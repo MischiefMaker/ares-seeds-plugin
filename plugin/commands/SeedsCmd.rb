@@ -3,7 +3,7 @@ module AresMUSH
     class SeedsCmd
       include CommandHandler
 
-      attr_accessor :name
+      attr_accessor :name, :char
 
       def parse_args
         self.name = cmd.args ? titlecase_arg(cmd.args) : enactor_name
