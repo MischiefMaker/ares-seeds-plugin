@@ -3,11 +3,10 @@ module AresMUSH
     class SeedsCmd
       include CommandHandler
 
-      attr_accessor :name, :char
+      attr_accessor :char
 
       def parse_args
-        self.name = cmd.args ? titlecase_arg(cmd.args) : enactor_name
-        self.char = Character.find_one_by_name(self.name)
+        self.char = cmd.args ? Character.find_one_by_name(cmd.args) : enactor
       end
 
       def check_is_player
