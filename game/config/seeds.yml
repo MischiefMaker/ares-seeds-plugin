@@ -5,3 +5,4 @@ seeds:
     seeds/update: seeds/set
     seed: seeds
     seeds/remove: seeds/delete
+    seeds/add: seeds/new

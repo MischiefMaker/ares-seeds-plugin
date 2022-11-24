@@ -7,10 +7,11 @@ module AresMUSH
 
       def parse_args
         self.name = cmd.args ? titlecase_arg(cmd.args) : enactor_name
+        self.char = Character.find_one_by_name(self.name)
       end
 
       def check_can_view
-        return nil if self.name == enactor_name
+        return nil if char.name == enactor_name
         return nil if enactor.has_permission?("view_bgs")
         return "You're not allowed to view another person's Seeds."
       end
