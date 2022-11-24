@@ -27,7 +27,7 @@ module AresMUSH
       else
         seeds = Hash[char.seeds]
         self.seed_description = seeds[self.seed_name]
-            Utils.grab client, enactor, "seeds/set #{self.name}=#{self.seed_name}/#{self.seed_description}"
+            Utils.grab client, enactor, "seeds/edit #{self.name}=#{self.seed_name}/#{self.seed_description}"
       end
     end
 
