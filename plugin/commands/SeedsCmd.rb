@@ -6,11 +6,12 @@ module AresMUSH
       attr_accessor :char
 
       def parse_args
-        if cmd.args == nil
+        arg = trim_arg(cmd.args)
+        if arg == nil
           self.char = enactor
         else
-          ClassTargetFinder.with_a_character(self.name, client, enactor) do |model|
-            self.char = cmd.args
+          ClassTargetFinder.with_a_character(arg, client, enactor) do |model|
+            self.char = model
           end
         end
       end
