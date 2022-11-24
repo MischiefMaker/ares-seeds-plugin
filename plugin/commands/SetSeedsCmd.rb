@@ -3,7 +3,7 @@ module AresMUSH
     class NewSeedsCmd
       include CommandHandler
 
-      attr_accessor :name, :seed_name, :seed_description
+      attr_accessor :name, :char, :seed_name, :seed_description
 
       def parse_args
         args = cmd.parse_args(ArgParser.arg1_equals_arg2_slash_arg3)

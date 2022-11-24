@@ -3,13 +3,14 @@ module AresMUSH
     class NewSeedsCmd
       include CommandHandler
 
-      attr_accessor :name, :seed_name, :seed_description
+      attr_accessor :name, :char, :seed_name, :seed_description
 
       def parse_args
         args = cmd.parse_args(ArgParser.arg1_equals_arg2_slash_arg3)
           self.name = titlecase_arg(args.arg1)
           self.seed_name = titlecase_arg(args.arg2)
           self.seed_description = trim_arg(args.arg3)
+          self.char = Character.find_one_by_name(self.name)
       end
 
      def required_args
