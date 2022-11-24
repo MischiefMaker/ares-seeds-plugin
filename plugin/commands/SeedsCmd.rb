@@ -10,6 +10,11 @@ module AresMUSH
         self.char = Character.find_one_by_name(self.name)
       end
 
+      def check_is_player
+        return nil if self.char != nil
+        return "#{self.name} is not a character."
+      end
+
       def check_can_view
         return nil if self.char.name == enactor_name
         return nil if enactor.has_permission?("view_bgs")
