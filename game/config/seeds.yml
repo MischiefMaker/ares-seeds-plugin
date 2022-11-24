@@ -2,7 +2,6 @@
 seeds:
   seeds_blurb: 'Customize this text to explain how your game uses the Seeds code.'
   shortcuts:
-    seeds/add: seeds/set
     seeds/update: seeds/set
     seed: seeds
     seeds/remove: seeds/delete
