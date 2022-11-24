@@ -9,7 +9,6 @@ module AresMUSH
        args = cmd.parse_args(ArgParser.arg1_equals_arg2)
         self.name = titlecase_arg(args.arg1)
         self.seed_name = titlecase_arg(args.arg2)
-      end
     end
 
     def required_args
