@@ -11,7 +11,7 @@ module AresMUSH
 
       def check_can_view
          return nil if self.char == enactor_name
-         return nil if enactor.has_permission?("view_bgs")
+         return nil if enactor.has_permission?("manage_seeds")
          return "You're not allowed to view other peoples' Seeds."
       end
 
