@@ -9,6 +9,10 @@ module AresMUSH
         self.char = cmd.args ? Character.find_one_by_name(cmd.args) : enactor
       end
 
+      def check_is_character
+        return "#{self.char} is not a character." if self.char == nil
+      end
+
       def check_can_view
         return nil if self.char.name == enactor_name
         return nil if enactor.has_permission?("view_bgs")
