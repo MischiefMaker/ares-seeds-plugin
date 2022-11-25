@@ -24,11 +24,8 @@ module AresMUSH
 
 
       def handle
-        
-          template = SeedsTemplate.new(char,char.seeds || {})
-          client.emit template.render
-	       end
+        template = SeedsTemplate.new(char,char.seeds || {})
+        client.emit template.render
       end
     end
   end
-end
