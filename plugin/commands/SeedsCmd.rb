@@ -6,14 +6,7 @@ module AresMUSH
       attr_accessor :char
 
       def parse_args
-        arg = downcase_arg(cmd.args)
-        if arg == nil
-          self.char = enactor
-        else
-          ClassTargetFinder.with_a_character(arg, client, enactor) do |model|
-            self.char = model
-           end
-        end
+        self.char = cmd.args ? Character.find_one_by_name(cmd.args) : enactor
       end
 
       def check_can_view
