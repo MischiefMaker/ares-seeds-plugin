@@ -6,3 +6,5 @@ seeds:
     seed: seeds
     seeds/remove: seeds/delete
     seeds/add: seeds/new
+  permissions:
+    manage_seeds: View and edit Seeds details on other chars.
