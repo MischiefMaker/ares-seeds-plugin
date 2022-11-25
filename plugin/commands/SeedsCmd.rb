@@ -10,7 +10,7 @@ module AresMUSH
       end
 
       def check_is_character
-        return "#{self.char} is not a character." if self.char == nil
+        return "#{self.char} is not a character." if self.char.name == nil
       end
 
       def check_can_view
