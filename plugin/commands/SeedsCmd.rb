@@ -3,16 +3,16 @@ module AresMUSH
     class SeedsCmd
       include CommandHandler
 
-      attr_accessor :name
+      attr_accessor :char
 
       def parse_args
         self.char = cmd.args ? titlecase_arg(cmd.args) : enactor_name
       end
 
       def check_can_view
-        return nil if self.char == enactor_name
-        return nil if enactor.has_permission?("view_bgs")
-        return "You're not allowed to view another person's Seeds."
+         return nil if self.char == enactor_name
+         return nil if enactor.has_permission?("view_bgs")
+         return "You're not allowed to view other peoples' Seeds."
       end
 
 
