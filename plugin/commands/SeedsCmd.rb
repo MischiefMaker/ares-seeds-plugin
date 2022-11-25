@@ -17,15 +17,15 @@ module AresMUSH
       end
 
       def check_can_view
-        return nil if self.char.name == enactor_name
+        return nil if char.name == enactor_name
         return nil if enactor.has_permission?("view_bgs")
         return "You're not allowed to view another person's Seeds."
       end
 
 
       def handle
-        ClassTargetFinder.with_a_character(self.name, client, enactor) do |model|
-          template = SeedsTemplate.new(model,model.seeds || {})
+        
+          template = SeedsTemplate.new(char,char.seeds || {})
           client.emit template.render
 	       end
       end
